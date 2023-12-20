@@ -30,26 +30,29 @@ class Registration extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Hive Registration"),
       ),
-      body: Column(
-        children: [
-          TextField(
-              controller: email_cntrl,
-              decoration: const InputDecoration(hintText: "UserName")),
-          TextField(
-              controller: pwd_cntrl,
-              decoration: const InputDecoration(hintText: "Password")),
-          ElevatedButton(
-              onPressed: () async {
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            TextField(
+                controller: email_cntrl,
+                decoration: const InputDecoration(hintText: "UserName")),
+            TextField(
+                controller: pwd_cntrl,
+                decoration: const InputDecoration(hintText: "Password")),
+            ElevatedButton(
+                onPressed: () async {
 //to check whether already the users are there or not in db
-                //for checking that we are using get to take all the users from hive db
-                //only one object means its instance
-                //if we can create more objects then its objects
-                //for db we create only one object to become secured
-                final regUserlist = await HiveDb.instance.getUser();
-                validate_signup(regUserlist);
-              },
-              child: const Text("Register here"))
-        ],
+                  //for checking that we are using get to take all the users from hive db
+                  //only one object means its instance
+                  //if we can create more objects then its objects
+                  //for db we create only one object to become secured
+                  final regUserlist = await HiveDb.instance.getUser();
+                  validate_signup(regUserlist);
+                },
+                child: const Text("Register here"))
+          ],
+        ),
       ),
     );
   }
@@ -84,7 +87,7 @@ class Registration extends StatelessWidget {
         }
       }
       else{
-        Get.snackbar("Error", "enter a valid email");
+        Get.snackbar("Error", "enter a valid email",);
       }
     }
     else{
