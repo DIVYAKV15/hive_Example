@@ -15,6 +15,7 @@ class HiveDb {
   Future<List<User>> getUser() async {
     final db = await Hive.openBox<User>('userData');
     return db.values.toList();
+    //User is a custom data type we made this
 //getUser is to get all the login details from db so we can verify whether that user details is already there in db or not
 // as we are returning to list so we are converting  into .to.list()
 // <user> is the one we created in the model as type adapter

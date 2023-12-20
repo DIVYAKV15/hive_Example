@@ -5,7 +5,7 @@ class HiveSignUpPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return  Scaffold(appBar: AppBar(title: Text("WELCOME"),),);
   }
 }
 
