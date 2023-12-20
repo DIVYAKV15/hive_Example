@@ -1,9 +1,12 @@
 import 'package:hive_flutter/hive_flutter.dart';
 part 'user_model.g.dart';//have to give this dart file name and g is to generated to create the TypeAdapter
+//part is very important to define to let the build runner do his work
+//// HiveType annotation for generate the type adapter
 
 @HiveType(typeId: 0)//Annoted with TypeId and it should be different for each type
 class User
 {
+  // Annotate all fields which should be stored with HiveField
   @HiveField(0)//this is for field
   final String email;
   @HiveField(1)// The field numbers help identify the fields when the class has been converted to binary to save in Hive
